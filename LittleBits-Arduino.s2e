@@ -1,0 +1,55 @@
+{	
+	"extensionName": "LittleBits-Arduino",
+	"description": "A  Extension for LittleBits-Arduino",
+	"version": "1.1",
+	"author": "Phillip(phisch@uni-bremen.de)",
+	"homepage": "http://www.smile-smart-it.de",
+	"sort":0,
+	"javascriptURL":"js/LittleBits-Arduino.js",
+  	"firmware":"1.0",
+  	"extensionPort":0,
+	"tags" : "makeblock,littlebits,bit, arduino, arduinobit",
+	"blockSpecs": [
+		["h","LittleBits-Arduino Programm", "runArduino"],
+
+		["B", "lese digitalen Pin %d.digitalInput","getDigital","d0",
+		{"setup":"pinMode({0},INPUT);\n","inc":"","def":"","work":"digitalRead({0})","loop":""}],
+
+		["R", "lese analogen Pin %n","getAnalog","A0",
+		{"setup":"pinMode({0},INPUT);\n","inc":"","def":"","work":"analogRead({0})","loop":""}],
+
+		["w", "Setze digitalen Pin %d.digitalOutput auf %d.digital","runDigital", "d9", "HIGH",
+		{"setup":"pinMode({0},OUTPUT);\n","inc":"","def":"","work":"digitalWrite({0},{1});\n","loop":""}],
+
+		["w", "Setze analogen Pin %d.analogOutput auf %n","runAnalog", "d5", "0",
+		{"setup":"pinMode({0},OUTPUT);\n","inc":"","def":"","work":"analogWrite({0},{1});\n","loop":""}],
+
+		["B", "Button an %d.digitalInput gedrückt?", "", "d0",
+		{"setup":"pinMode({0},INPUT);\n", "inc":"","work":"digitalRead({0})","loop":""}],
+
+		["R","Dimmer Wert an %d.analogInput", "a0",
+		{"setup":"pinMode({0},INPUT); \n","inc":"","def":"","work":"analogRead({0})","loop":"" }],
+
+	],
+	
+	"menus": {
+		"digital":["HIGH","LOW"],
+		"digitalInput"	:["d0","a0","a1"],
+		"analogInput" 	:["d0","a0","a1"],
+		"digitalOutput" : ["d1","d5","d9"],
+		"analogOutput"	: ["d5", "d9"]
+	},
+	"values":{
+		"HIGH":1,
+		"LOW": 0,
+		"a0" :"A0",
+		"a1" :"A1",
+		"d0" :0,
+		"d1" : 1,
+		"d5" : 5,
+		"d9" : 9
+	},
+	"translators":{
+		}
+	}
+}
